@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Zaim Tech - Professional App Development for Android, iOS, Web & Multi-Device Platforms. Live project demos available.">
+<title>Zaim Tech | Next-Level App Development + Demos</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: #f1f5f9;
+    scroll-behavior: smooth;
+    line-height: 1.5;
+  }
+
+  section {
+    scroll-margin-top: 85px;
+  }
+
+  header {
+    padding: 18px 32px;
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  header h1 {
+    color: #38bdf8;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    animation: slideIn 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+  }
+
+  nav a {
+    color: #e2e8f0;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.25s ease;
+    font-size: 1rem;
+    position: relative;
+  }
+
+  nav a:hover {
+    color: #38bdf8;
+    transform: translateY(-2px);
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #38bdf8;
+    transition: 0.3s;
+    border-radius: 4px;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 140px 24px;
+    text-align: center;
+    background: linear-gradient(125deg, #0ea5e9, #4f46e5, #7c3aed);
+    background-size: 180% 180%;
+    animation: gradientShift 12s ease infinite, fadeIn 1.2s ease;
+    border-radius: 0 0 48px 48px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hero h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 2rem auto;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  .btn {
+    background: white;
+    color: #0f172a;
+    padding: 14px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: inline-block;
+    transition: 0.3s;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1s ease;
+  }
+
+  .btn:hover {
+    transform: scale(1.07) translateY(-4px);
+    background: #f8fafc;
+    box-shadow: 0 15px 28px rgba(0, 0, 0, 0.25);
+    color: #0284c7;
+  }
+
+  .section {
+    padding: 70px 24px;
+    text-align: center;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+    background: linear-gradient(135deg, #e0f2fe, #38bdf8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 20px;
+  }
+
+  .card {
+    background: #1e293b;
+    border-radius: 28px;
+    padding: 28px 20px;
+    transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: fadeInUp 0.7s ease forwards;
+    backdrop-filter: blur(2px);
+  }
+
+  .card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.6);
+    border-color: #38bdf8;
+    background: #273549;
+  }
+
+  .card img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    transition: 0.2s;
+    object-fit: contain;
+  }
+
+  .card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #bae6fd;
+  }
+
+  .demo-btn {
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-weight: 600;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: inherit;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .demo-btn:hover {
+    background: #0284c7;
+    transform: scale(1.03);
+    letter-spacing: 0.3px;
+  }
+
+  .tech-badge {
+    background: #111827;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #7dd3fc;
+    margin-top: 12px;
+    display: inline-block;
+  }
+
+  ul.level-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  ul.level-list li {
+    margin-bottom: 18px;
+    padding: 12px 12px;
+    background: #111827;
+    border-radius: 20px;
+    transition: 0.2s;
+    border-left: 3px solid #38bdf8;
+    font-size: 0.9rem;
+  }
+
+  ul.level-list li:hover {
+    background: #0f172a;
+    transform: translateX(4px);
+  }
+
+  .level-name {
+    font-weight: 700;
+    color: #7dd3fc;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+
+  .example {
+    font-style: italic;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  #about ul {
+    text-align: left;
+    max-width: 700px;
+    margin: 25px auto;
+    background: #11182780;
+    padding: 20px 28px;
+    border-radius: 32px;
+    backdrop-filter: blur(4px);
+  }
+
+  #about li {
+    margin: 12px 0;
+    list-style-type: '✓   ';
+    padding-left: 8px;
+    font-weight: 400;
+  }
+
+  #contact p {
+    margin: 16px 0;
+    font-size: 1.2rem;
+  }
+
+  #contact a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+    border-bottom: 1px dotted #38bdf8;
+  }
+
+  #contact a:hover {
+    color: white;
+    border-bottom-color: white;
+  }
+
+  footer {
+    padding: 40px 20px;
+    text-align: center;
+    background: #020617;
+    border-top: 1px solid #1e293b;
+    font-size: 0.9rem;
+    color: #94a3b8;
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    width: 58px;
+    height: 58px;
+    bottom: 24px;
+    right: 24px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: 0.25s;
+    text-decoration: none;
+    animation: softPulse 2s infinite;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.12);
+    background: #1ebe5d;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    animation: none;
+  }
+
+  @keyframes softPulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); transform: scale(1);}
+    70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); transform: scale(1.02);}
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1);}
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(-40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(35px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    70% { transform: scale(0.96); }
+    100% { transform: scale(1); }
+  }
+
+  @media (max-width: 780px) {
+    header {
+      padding: 14px 20px;
+      flex-direction: column;
+      gap: 12px;
+    }
+    nav a {
+      margin: 0 8px;
+      font-size: 0.9rem;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+    .section h2 {
+      font-size: 1.9rem;
+    }
+    .card h3 {
+      font-size: 1.4rem;
+    }
+    .demo-btn {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cards {
+      gap: 20px;
+    }
+    .card {
+      padding: 20px 14px;
+    }
+    .hero {
+      padding: 90px 16px;
+    }
+    .whatsapp-float {
+      width: 50px;
+      height: 50px;
+      font-size: 26px;
+      bottom: 18px;
+      right: 18px;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #38bdf8;
+    border-radius: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚡ Zaim Tech</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#demos">Demos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Next-Level Apps For Every Device</h2>
+  <p>I build powerful, modern, and scalable apps for Android, iOS, Web & Multi-Device platforms. Global quality, local expertise.</p>
+  <a class="btn" href="#contact">🚀 Start Your Project</a>
+</section>
+
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <p>Hello, I'm <strong>Zaim Maalim Sheali</strong> from Kenya. I am a skilled app developer with expertise in Android, iOS, Web, and Multi-Device applications. I specialize in building apps that help businesses, schools, health facilities, financial institutions, and political campaigns achieve their goals. My abilities include:</p>
+  <ul style="text-align:left; max-width:600px; margin:20px auto;">
+    <li>Mobile app development for Android and iOS</li>
+    <li>Web application development and responsive design</li>
+    <li>Multi-device integration for seamless user experiences</li>
+    <li>Automation and smart reporting systems</li>
+    <li>Business, education, health, and financial app solutions</li>
+    <li>Maintaining clean code, UI/UX design, and scalability</li>
+    <li>Local solutions like Chama, banking apps, and USSD systems</li>
+  </ul>
+  <p>I am passionate about delivering apps that are user-friendly, efficient, and capable of scaling globally. I focus on providing high-quality solutions that meet the exact needs of my clients worldwide.</p>
+</section>
+
+<section id="services" class="section">
+  <h2>⚙️ Services I Offer</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://img.icons8.com/color/96/000000/android-os.png" alt="Android Development">
+      <h3>Android Apps</h3>
+      <p>Native & cross-platform Android apps with smooth UI, offline support, and powerful backend integration.</p>
+    </div>
+    <div class="card">
+      <img src="https://e7.pngegg.com/pngimages/622/355/png-clipart-logo-product-design-ios-brand-desktop-computer-text-computer-thumbnail.png" alt="iOS Development">
+      <h3>iOS Apps</h3>
+      <p>Feature-rich iPhone & iPad apps with Apple design principles, performance and security.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/color/96/000000/multiple-devices.png" alt="Multi-Device Solutions">
+      <h3>Multi Device Apps</h3>
+      <p>Unified experiences across phone, tablet, desktop & wearables — sync data in real time.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/color/96/000000/domain.png" alt="Web Apps">
+      <h3>Web Apps</h3>
+      <p>Responsive PWAs, dashboards, and dynamic portals that work perfectly on any browser.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="section">
+  <h2>📱 App Categories, Levels & Prices</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>🎓 Education Apps</h3>
+      <ul class="level-list">
+        <li><span class="level-name">Basic Level:</span> <span class="example">School timetable app, basic notices, etc.</span> – <span class="price">KES 15k-20k / $100</span></li>
+        <li><span class="level-name">Standard Level:</span> <span class="example">School management system (reports sent to parents), etc.</span> – <span class="price">KES 20k-25k / $150</span></li>
+        <li><span class="level-name">Premium Level:</span> <span class="example">E-learning platform with quizzes & exams, etc.</span> – <span class="price">KES 25k-30k / $200</span></li>
+        <li><span class="level-name">Highest Level:</span> <span class="example">Advanced student performance system, etc.</span> – <span class="price">KES 30k / $250</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🏥 Health Apps</h3>
+      <ul class="level-list">
+        <li><span class="level-name">Basic Level:</span> <span class="example">Clinic appointment scheduler, etc.</span> – <span class="price">KES 15k-25k / $100</span></li>
+        <li><span class="level-name">Standard Level:</span> <span class="example">Patient record system, etc.</span> – <span class="price">KES 25k-40k / $150</span></li>
+        <li><span class="level-name">Premium Level:</span> <span class="example">Hospital management system, etc.</span> – <span class="price">KES 40k-70k / $300</span></li>
+        <li><span class="level-name">Highest Level:</span> <span class="example">Automated health alert & reporting system, etc.</span> – <span class="price">KES 70k / $500</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>💼 Business & Finance Apps</h3>
+      <ul class="level-list">
+        <li><span class="level-name">Basic Level:</span> <span class="example">Inventory & sales tracker, etc.</span> – <span class="price">KES 15k-25k / $100</span></li>
+        <li><span class="level-name">Standard Level:</span> <span class="example">E-commerce app with M-Pesa integration, etc.</span> – <span class="price">KES 50k-100k / $300</span></li>
+        <li><span class="level-name">Premium Level:</span> <span class="example">Business dashboard with reporting, etc.</span> – <span class="price">KES 100k-150k / $1000</span></li>
+        <li><span class="level-name">Highest Level:</span> <span class="example">Chama & banking app with updates & automation, etc.</span> – <span class="price">KES 150k+ / $2500+</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🗳 Political Apps</h3>
+      <ul class="level-list">
+        <li><span class="level-name">Basic Level:</span> <span class="example">Candidate info app, etc.</span> – <span class="price">KES 15k-25k / $100</span></li>
+        <li><span class="level-name">Standard Level:</span> <span class="example">Campaign updates app, etc.</span> – <span class="price">KES 25k-50k / $200</span></li>
+        <li><span class="level-name">Premium Level:</span> <span class="example">Voter engagement app, etc.</span> – <span class="price">KES 50k-100k / $450</span></li>
+        <li><span class="level-name">Highest Level:</span> <span class="example">Full campaign management with analytics, etc.</span> – <span class="price">KES 100k+ / $1000+</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="demos" class="section">
+  <h2>🖥️ Live Project Demos — What I Can Build For You</h2>
+  <p style="margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">Explore fully functional demos of real applications I've architected. Click "Preview Demo" to see interactive prototypes, or contact me for a live walkthrough.</p>
+  <div class="cards">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQArxoMfmYdEHV9ZeKYnJB_m8KNXSSJ4nsMHg&s" alt="School Management System Demo">
+      <h3>📚 Smart School System</h3>
+      <p>Complete school management: student records, exam results, parent notifications, fee tracking & automated report cards.</p>
+      <button class="demo-btn" onclick="showDemoAlert('School Management Demo: Interactive dashboard with real-time analytics, role-based access (admin, teacher, parent). Fully responsive web + mobile app ready.')">🎬 Preview Demo</button>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/color/96/000000/shopping-cart--v1.png" alt="E-commerce Demo">
+      <h3>🛒 M-Pesa E‑commerce</h3>
+      <p>Fully functional online store with product listings, cart, checkout, and M-Pesa STK push simulation. Order management & analytics.</p>
+      <span class="tech-badge">M-Pesa API</span>
+      <button class="demo-btn" onclick="showDemoAlert('E‑commerce Demo: Live product catalog, dynamic cart, M-Pesa payment simulation. Admin panel to manage inventory & view sales reports.')">🎬 Preview Demo</button>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/color/96/000000/health-book.png" alt="Health App Demo">
+      <h3>🏥 Patient Health Portal</h3>
+      <p>Appointment scheduling, e‑prescriptions, lab results, and secure messaging between doctors and patients. Multi-device sync.</p>
+      <span class="tech-badge">👌</span>
+      <button class="demo-btn" onclick="showDemoAlert('Health Demo: Patient dashboard, doctor availability calendar, real-time notifications, and automated health reminders. Ideal for clinics/hospitals.')">🎬 Preview Demo</button>
+    </div>
+    <div class="card">
+      <img src="https://w7.pngwing.com/pngs/668/20/png-transparent-computer-icons-bell.png" alt="USSD Banking Demo">
+      <h3>📱 USSD & Mobile Banking</h3>
+      <p>Hybrid solution: USSD codes for basic banking (balance, transfer, mini-statement) + companion mobile app for advanced features.</p>
+      <span class="tech-badge">USSD (Africa's Talking)</span>
+      <button class="demo-btn" onclick="showDemoAlert('Banking Suite Demo: Simulated USSD menu (dial *384#), account creation, funds transfer, and transaction history. Also includes Android app with fingerprint auth.')">🎬 Preview Demo</button>
+    </div>
+  </div>
+  <p style="margin-top: 40px; font-size: 0.95rem; background: #1e293b80; display: inline-block; padding: 8px 20px; border-radius: 60px;">✨ Each demo is fully responsive — ask for a personalized live session via WhatsApp. I can tailor any prototype to your exact needs.</p>
+</section>
+
+<!-- CONTACT SECTION - Updated with "for more info, clarification and discounts" -->
+<section id="contact" class="section">
+  <h2>📬 Let's Build Something Great</h2>
+  <p>📱 WhatsApp: <a href="https://wa.me/254702100103" target="_blank">+254 702 100 103</a></p>
+  <p>📸 Instagram: <a href="https://instagram.com/king_zaim001" target="_blank">@king_zaim001</a></p>
+  <p>📧 Or reach out directly — quick responses, tailored solutions.</p>
+  <p style="background: #0f172a80; padding: 12px 20px; border-radius: 50px; display: inline-block; margin: 20px auto; font-weight: 500;">💡 For more info, clarifications, and discounts — feel free to ask!</p>
+  <p style="margin-top: 16px; font-weight: 500;">✨ Ready to turn your idea into a powerful app? Message me now 🚀</p>
+  <a class="btn" href="https://wa.me/254702100103" style="margin-top: 20px; display: inline-block; background: #38bdf8; color: #0f172a;">💬 Chat on WhatsApp</a>
+</section>
+
+<footer>
+  <p>© 2026 Zaim Maalim Sheali — Based in Kenya, serving the world 🌍 | Built with passion 💻 | Live demos available on request</p>
+</footer>
+
+<a href="https://wa.me/254702100103" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+<script>
+  // Smooth scroll with offset for sticky header
+  document.querySelectorAll('nav a, .btn[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          const offset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }
+    });
+  });
+
+  window.showDemoAlert = function(demoDetails) {
+    const userChoice = confirm(`${demoDetails}\n\n📲 Want a full interactive walkthrough? Click "OK" to message me on WhatsApp now and I'll send you a live demo link. Cancel to close.`);
+    if (userChoice) {
+      window.open('https://wa.me/254702100103?text=Hi%20Zaim!%20I%20just%20saw%20your%20project%20demo%20and%20would%20love%20a%20live%20walkthrough.%20Please%20share%20the%20demo%20access.', '_blank');
+    }
+  };
+</script>
+</body>
+</html>
